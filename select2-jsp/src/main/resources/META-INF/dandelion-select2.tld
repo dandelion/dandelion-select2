@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+   version="2.0">
+   <description>Set of tags for manipulating HTML table with DataTables.</description>
+   <display-name>dandelion-select2</display-name>
+   <tlib-version>0110</tlib-version>
+   <short-name>select2</short-name>
+   <uri>http://github.com/dandelion/select2</uri>
+
+   <!-- ====================================== -->
+   <!-- SelectTag -->
+   <!-- ====================================== -->
+   <tag>
+      <description>
+      <![CDATA[
+         <p>The <ddl:select> tag allows you to display a HTML table thanks to a set of attributes and nested <datatables:column> tags.</p>
+      ]]>
+      </description>
+      <name>select</name>
+      <tag-class>com.github.dandelion.select2.jsp.tag.SelectTag</tag-class>
+      <body-content>JSP</body-content>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>DOM id of the HTML table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>yes</b></li>
+            <li>Data source: <b>DOM / AJAX</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>id</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>data</name>
+         <rtexprvalue>true</rtexprvalue>
+         <type>java.lang.Object</type>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>URL called by DataTables to populate the table. Data returned must be in the JSON format</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>AJAX</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>url</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>URL called by DataTables to populate the table. Data returned must be in the JSON format</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>AJAX</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>itemValue</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>URL called by DataTables to populate the table. Data returned must be in the JSON format</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>AJAX</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>itemLabel</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+   </tag>
+</taglib>

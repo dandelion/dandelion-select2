@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>com.github.dandelion</groupId>
+      <artifactId>dandelion-select2</artifactId>
+      <version>0.11.0-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>select2-core</artifactId>
+   <packaging>jar</packaging>
+   <name>Dandelion :: Select2 :: Core</name>
+
+   <dependencies>
+
+      <!-- Dandelion -->
+      <dependency>
+         <groupId>com.github.dandelion</groupId>
+         <artifactId>dandelion-core</artifactId>
+      </dependency>
+
+      <!-- Json simple -->
+      <dependency>
+         <groupId>com.googlecode.json-simple</groupId>
+         <artifactId>json-simple</artifactId>
+      </dependency>
+
+      <!-- Commons BeanUtils -->
+      <dependency>
+         <groupId>commons-beanutils</groupId>
+         <artifactId>commons-beanutils</artifactId>
+         <scope>compile</scope>
+         <exclusions>
+            <exclusion>
+               <groupId>commons-logging</groupId>
+               <artifactId>commons-logging</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+      <!-- Servlet API -->
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
+
+      <!-- Logging -->
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <scope>compile</scope>
+      </dependency>
+
+      <!-- Test -->
+      <dependency>
+         <groupId>org.easytesting</groupId>
+         <artifactId>fest-assert</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet.jsp</groupId>
+         <artifactId>jsp-api</artifactId>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+</project>

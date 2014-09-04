@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>com.github.dandelion</groupId>
+      <artifactId>dandelion-select2</artifactId>
+      <version>0.11.0-SNAPSHOT</version>
+   </parent>
+
+   <artifactId>select2-jsp</artifactId>
+   <packaging>jar</packaging>
+   <name>Dandelion :: Select2 :: JSP Implementation</name>
+   <description>JSP implementation of Dandelion-Select2 that provides a JSP taglib.</description>
+
+   <dependencies>
+
+      <!-- Internal dependencies -->
+      <dependency>
+         <groupId>com.github.dandelion</groupId>
+         <artifactId>select2-core</artifactId>
+         <version>0.11.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+         <groupId>com.github.dandelion</groupId>
+         <artifactId>dandelion-jsp</artifactId>
+      </dependency>
+
+      <!-- JSP -->
+      <dependency>
+         <groupId>javax.servlet.jsp</groupId>
+         <artifactId>jsp-api</artifactId>
+      </dependency>
+
+      <!-- Servlet API -->
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
+
+      <!-- JSTL -->
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>jstl</artifactId>
+      </dependency>
+
+      <!-- Logging -->
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+      </dependency>
+
+      <!-- Test dependencies -->
+
+      <!-- PhantomJS + GhostDriver -->
+      <dependency>
+         <groupId>com.github.detro.ghostdriver</groupId>
+         <artifactId>phantomjsdriver</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- Fluentlenium -->
+      <dependency>
+         <groupId>org.fluentlenium</groupId>
+         <artifactId>fluentlenium-core</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- Jetty -->
+      <dependency>
+         <groupId>org.eclipse.jetty</groupId>
+         <artifactId>jetty-server</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.eclipse.jetty</groupId>
+         <artifactId>jetty-webapp</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.eclipse.jetty</groupId>
+         <artifactId>jetty-jsp</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- JUnit -->
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit-dep</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- FestAssert -->
+      <dependency>
+         <groupId>org.easytesting</groupId>
+         <artifactId>fest-assert</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- Spring + Jackson -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-webmvc</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.codehaus.jackson</groupId>
+         <artifactId>jackson-mapper-asl</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <!-- XML APIs -->
+      <dependency>
+         <groupId>xml-apis</groupId>
+         <artifactId>xml-apis</artifactId>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+         </plugin>
+      </plugins>
+   </build>
+</project>

@@ -1,0 +1,22 @@
+{
+    "bundle" : "select2",
+    "dependencies": [ "jquery" ],
+    "assets": [
+        {
+            "name": "select2",
+            "version": "3.4.8",
+            "type": "js",
+            "locations": {
+                "cdn": "//cdn.jsdelivr.net/select2/3.4.8/select2.js"
+            }
+        },
+        {
+            "name": "datatables",
+            "version": "3.4.8",
+            "type": "css",
+            "locations": {
+                "cdn": "//cdn.jsdelivr.net/select2/3.4.8/select2.css"
+            }
+        }
+    ]
+}

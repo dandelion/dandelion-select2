@@ -1,0 +1,14 @@
+{
+	"bundle": "ddl-s2",
+	"dependencies": [ "select2" ], 
+    "assets": [
+        {
+            "name": "dandelion-select2", 
+            "version": "0.11.0",
+            "type": "js", 
+        	"locations": {
+        		"delegate": "dandelion-select2.js"
+        	}
+        }
+    ]
+}

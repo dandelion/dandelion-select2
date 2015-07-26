@@ -29,9 +29,9 @@
  */
 /**
  * <p>
- * All Java implementations of HTML tags.
+ * Base classes for the Dandelion-Select2 configuration loading.
  * </p>
  *
  * @author Thibault Duchateau
  */
-package com.github.dandelion.select2.core.html;
+package com.github.dandelion.select2.core.config;

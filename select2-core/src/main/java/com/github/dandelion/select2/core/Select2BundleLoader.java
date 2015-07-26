@@ -1,6 +1,6 @@
 /*
  * [The "BSD licence"]
- * Copyright (c) 2013-2014 Dandelion
+ * Copyright (c) 2013-2015 Dandelion
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -27,66 +27,46 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.github.dandelion.select2.core.bundle;
-
-import java.util.Collections;
-import java.util.Set;
+package com.github.dandelion.select2.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.dandelion.core.bundle.loader.spi.AbstractBundleLoader;
+import com.github.dandelion.core.Context;
+import com.github.dandelion.core.bundle.loader.AbstractBundleLoader;
 
 /**
  * <p>
- * Bundle loader used to load user-defined bundles inside the
- * {@code dandelion/select2} folder (and all subfolders) of the classpath.
- * 
+ * Bundle loader used to recursively load user-defined bundles inside the
+ * {@code dandelion/select2} folder of the classpath.
+ * </p>
  * 
  * @author Thibault Duchateau
- * @since 0.11.0
+ * @since 1.0.0
  */
 public class Select2BundleLoader extends AbstractBundleLoader {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Select2BundleLoader.class);
+   private static final Logger LOG = LoggerFactory.getLogger(Select2BundleLoader.class);
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Logger getLogger() {
-		return LOG;
-	}
+   public static final String LOADER_NAME = "dandelion-select2";
+   public static final String SCANNING_PATH = "dandelion/select2";
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getName() {
-		return "dandelion-select2";
-	}
+   public Select2BundleLoader(Context context, boolean isStandalone) {
+      super(context, isStandalone);
+   }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getPath() {
-		return "dandelion/select2";
-	}
+   @Override
+   public String getName() {
+      return LOADER_NAME;
+   }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isRecursive() {
-		return true;
-	}
+   @Override
+   protected Logger getLogger() {
+      return LOG;
+   }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Set<String> getExcludedPaths() {
-		return Collections.emptySet();
-	}
+   @Override
+   public String getScanningPath() {
+      return SCANNING_PATH;
+   }
 }

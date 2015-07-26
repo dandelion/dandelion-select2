@@ -1,6 +1,6 @@
 /*
  * [The "BSD licence"]
- * Copyright (c) 2013-2014 Dandelion
+ * Copyright (c) 2013-2015 Dandelion
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,39 +27,35 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.github.dandelion.select2.core.generator.jquery;
+package com.github.dandelion.select2.core.web.handler.debug;
 
-import com.github.dandelion.core.asset.generator.jquery.AbstractJQueryJavascriptGenerator;
-import com.github.dandelion.core.asset.generator.jquery.JQueryAssetBuffer;
-import com.github.dandelion.core.utils.StringBuilderUtils;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Select2JQueryJavascriptGenerator extends AbstractJQueryJavascriptGenerator {
+import com.github.dandelion.core.web.handler.debug.DebugMenu;
+import com.github.dandelion.core.web.handler.debug.DebugPage;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public void fillBuffer(JQueryAssetBuffer dab) {
+/**
+ * <p>
+ * Debugging menu for the Dandelion-Select2 component.
+ * </p>
+ * <p>
+ * This menu is scanned and automatically inserted in the debugger.
+ * </p>
+ * 
+ * @author Thibault Duchateau
+ * @since 1.0.0
+ */
+public class Select2DebugMenu implements DebugMenu {
 
-		if (StringBuilderUtils.isNotBlank(dab.getBeforeAll())) {
-			appendToPlaceholder(Placeholder.BEFORE_ALL, dab.getBeforeAll());
-		}
+   @Override
+   public String getDisplayName() {
+      return "Dandelion Select2";
+   }
 
-		if (StringBuilderUtils.isNotBlank(dab.getBeforeStartDocumentReady())) {
-			appendToPlaceholder(Placeholder.BEFORE_START_DOCUMENT_READY, dab.getBeforeStartDocumentReady());
-		}
-
-		appendToPlaceholder(Placeholder.COMPONENT_CONFIGURATION, dab.getComponentConf());
-
-		if (StringBuilderUtils.isNotBlank(dab.getAfterStartDocumentReady())) {
-			appendToPlaceholder(Placeholder.AFTER_START_DOCUMENT_READY, dab.getAfterStartDocumentReady());
-		}
-
-		if (StringBuilderUtils.isNotBlank(dab.getBeforeEndDocumentReady())) {
-			appendToPlaceholder(Placeholder.BEFORE_END_DOCUMENT_READY, dab.getBeforeEndDocumentReady());
-		}
-
-		if (StringBuilderUtils.isNotBlank(dab.getAfterAll())) {
-			appendToPlaceholder(Placeholder.AFTER_ALL, dab.getAfterAll());
-		}
-	}
+   @Override
+   public List<DebugPage> getPages() {
+      List<DebugPage> debugPages = new ArrayList<DebugPage>();
+      return debugPages;
+   }
 }

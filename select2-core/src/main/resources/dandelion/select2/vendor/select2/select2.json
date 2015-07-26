@@ -1,0 +1,21 @@
+{
+    "bundle" : "select2",
+    "assets": [
+		{
+		    "name": "select2",
+		    "version": "4.0.0",
+		    "type": "css",
+		    "locations": {
+		        "remote": "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css"
+		    }
+		},
+		{
+		    "name": "select2",
+		    "version": "4.0.0",
+		    "type": "js",
+		    "locations": {
+		        "remote": "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"
+		    }
+		}
+    ]
+}

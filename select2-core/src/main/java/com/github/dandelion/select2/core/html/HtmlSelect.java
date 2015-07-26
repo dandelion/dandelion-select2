@@ -1,20 +1,21 @@
 /*
- * Copyright (c) 2012 Dandelion
+ * [The "BSD licence"]
+ * Copyright (c) 2013-2015 Dandelion
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright
  * notice, this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- * 3. Neither the name of Dandelion nor the names of its contributors 
- * may be used to endorse or promote products derived from this software 
+ * 3. Neither the name of Dandelion nor the names of its contributors
+ * may be used to endorse or promote products derived from this software
  * without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
@@ -35,82 +36,82 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.github.dandelion.core.html.HtmlTag;
+import com.github.dandelion.core.html.AbstractHtmlTag;
+import com.github.dandelion.select2.core.option.SelectConfiguration;
 
 /**
- * Plain old HTML <code>select</code> tag.
+ * <p>
+ * POJO for the plain old {@code select} HTML tag.
+ * </p>
  * 
  * @author Thibault Duchateau
- * @since 0.11.0
+ * @since 1.0.0
  */
-public class HtmlSelect extends HtmlTag {
+public class HtmlSelect extends AbstractHtmlTag {
 
-	// Internal attributes
-	private String originalId;
-	private List<HtmlOption> options = new LinkedList<HtmlOption>();
-	
-//	private HtmlCaption caption;
-//	private List<HtmlRow> head = new LinkedList<HtmlRow>();
-//	private List<HtmlRow> body = new LinkedList<HtmlRow>();
-//	private List<HtmlRow> foot = new LinkedList<HtmlRow>();
-//	private TableConfiguration tableConfiguration;
+   private static final String TAG_NAME = "select";
+   private String originalId;
+   private List<HtmlOption> options = new LinkedList<HtmlOption>();
+   private SelectConfiguration selectConfiguration;
 
-	public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response) {
-		this(id, request, response, null, null);
-	}
+   public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response) {
+      this(id, request, response, null, null);
+   }
 
-	public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response, String groupName) {
-		this(id, request, response, groupName, null);
-	}
+   public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response, String groupName) {
+      this(id, request, response, groupName, null);
+   }
 
-	public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response, String groupName, Map<String, String> dynamicAttributes) {
-		this.tag = "select";
-		this.originalId = id;
-		this.id = processId(id);
-		this.dynamicAttributes = dynamicAttributes;
-	}
+   public HtmlSelect(String id, HttpServletRequest request, HttpServletResponse response, String groupName,
+         Map<String, String> dynamicAttributes) {
+      this.tag = TAG_NAME;
+      this.originalId = id;
+      this.id = processId(id);
+      this.dynamicAttributes = dynamicAttributes;
+      this.selectConfiguration = new SelectConfiguration(id, null, request);
+   }
 
-	protected StringBuilder getHtmlAttributes() {
-		StringBuilder html = new StringBuilder();
-		html.append(writeAttribute("id", this.id));
-//		html.append(writeAttribute("class", TableConfig.CSS_CLASS.valueFrom(this.tableConfiguration)));
-//		html.append(writeAttribute("style", TableConfig.CSS_STYLE.valueFrom(this.tableConfiguration)));
-		return html;
-	}
+   @Override
+   protected StringBuilder getHtmlAttributes() {
+      StringBuilder html = new StringBuilder();
+      html.append(writeAttribute("id", this.id));
+      return html;
+   }
 
-	public String getOriginalId() {
-		return originalId;
-	}
+   public String getOriginalId() {
+      return originalId;
+   }
 
-	public void setOriginalId(String originalId) {
-		this.originalId = originalId;
-	}
+   public void setOriginalId(String originalId) {
+      this.originalId = originalId;
+   }
 
-	private String processId(String id){
-		return id.replaceAll("[^A-Za-z0-9 ]", "");
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public StringBuilder toHtml() {
-		StringBuilder html = new StringBuilder();
-		html.append(getHtmlOpeningTag());
-		html.append(getHtmlBody());
-		html.append(getHtmlClosingTag());
-		return html;
-	}
-	
-	private StringBuilder getHtmlBody() {
-		StringBuilder html = new StringBuilder();
-		for (HtmlOption option : this.options) {
-			html.append(option.toHtml());
-		}
-		return html;
-	}
-	
-	public void addOption(HtmlOption htmlOption){
-		options.add(htmlOption);
-	}
+   private String processId(String id) {
+      return id.replaceAll("[^A-Za-z0-9 ]", "");
+   }
+
+   public SelectConfiguration getSelectConfiguration() {
+      return selectConfiguration;
+   }
+
+   @Override
+   public StringBuilder toHtml() {
+      StringBuilder html = new StringBuilder();
+      html.append(getHtmlOpeningTag());
+      html.append(getHtmlBody());
+      html.append(getHtmlClosingTag());
+      return html;
+   }
+
+   private StringBuilder getHtmlBody() {
+      StringBuilder html = new StringBuilder();
+      for (HtmlOption option : this.options) {
+         html.append(option.toHtml());
+      }
+      return html;
+   }
+
+   public void addOption(HtmlOption htmlOption) {
+      options.add(htmlOption);
+   }
 }

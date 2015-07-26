@@ -27,62 +27,50 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.github.dandelion.select2.core.html;
+package com.github.dandelion.select2.core.option.processor;
 
-import com.github.dandelion.core.html.AbstractHtmlTag;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.github.dandelion.core.option.AbstractOptionProcessor;
+import com.github.dandelion.core.option.OptionProcessingContext;
+import com.github.dandelion.core.util.StringUtils;
+import com.github.dandelion.select2.core.option.Select2Options;
 
 /**
  * <p>
- * POJO for the plain old {@code option} HTML tag.
+ * Processor to be applied on the {@link Select2Options#PLACEHOLDER} option.
+ * </p>
+ * <p>
+ * This processor can return either a {@link String} or a {@link Map}.
  * </p>
  * 
  * @author Thibault Duchateau
  * @since 1.0.0
+ * @see Select2Options#PLACEHOLDER
  */
-public class HtmlOption extends AbstractHtmlTag {
+public class PlaceholderProcessor extends AbstractOptionProcessor {
 
-   private static final String TAG_NAME = "option";
-
-   /**
-    * Value of the option.
-    */
-   private String value;
-
-   /**
-    * Label of the option.
-    */
-   private String text;
-
-   public HtmlOption() {
-      this.tag = TAG_NAME;
-   }
-
-   public String getValue() {
-      return value;
-   }
-
-   public void setValue(String value) {
-      this.value = value;
-   }
-
-   public String getText() {
-      return text;
-   }
-
-   public void setText(String text) {
-      this.text = text;
-   }
+   private static final String KEY_ID = "id";
+   private static final String KEY_TEXT = "text";
 
    @Override
-   public StringBuilder toHtml() {
-      StringBuilder html = new StringBuilder();
-      html.append(getHtmlOpeningTag());
-      html.append(getHtmlBody());
-      html.append(getHtmlClosingTag());
-      return html;
-   }
+   protected Object getProcessedValue(OptionProcessingContext context) {
 
-   private StringBuilder getHtmlBody() {
-      return new StringBuilder(this.value);
+      String value = context.getValueAsString();
+
+      if (StringUtils.isNotBlank(value)) {
+         if (value.contains(",")) {
+            Map<String, String> retval = new HashMap<String, String>();
+            retval.put(KEY_ID, value.split(",")[0]);
+            retval.put(KEY_TEXT, value.split(",")[1]);
+            return retval;
+         }
+         else {
+            return context.getValueAsString().trim();
+         }
+      }
+
+      return null;
    }
 }

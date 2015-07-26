@@ -2,9 +2,9 @@
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
    version="2.0">
-   <description>Set of tags for manipulating HTML table with DataTables.</description>
+   <description>Set of tags for manipulating HTML select with Select2.</description>
    <display-name>dandelion-select2</display-name>
-   <tlib-version>0110</tlib-version>
+   <tlib-version>100</tlib-version>
    <short-name>select2</short-name>
    <uri>http://github.com/dandelion/select2</uri>
 
@@ -102,5 +102,86 @@
          <name>itemLabel</name>
          <rtexprvalue>true</rtexprvalue>
       </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>placeholder</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>allowClear</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>multiple</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>width</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+         <description>
+         <![CDATA[
+            <p>Collection of data to be used to populate the table.</p>
+            <p>
+            <ul>
+            <li>Required: <b>either the 'data' or the 'url' attribute is required</b></li>
+            <li>Data source: <b>DOM</b></li>
+            <li>Configuration property: <b>n/a</b></li>
+            </ul>
+            </p>
+         ]]>
+         </description>
+         <name>tags</name>
+         <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <dynamic-attributes>true</dynamic-attributes>
    </tag>
 </taglib>
